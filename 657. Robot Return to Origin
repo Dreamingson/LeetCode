@@ -1,0 +1,17 @@
+bool judgeCircle(char* moves) {
+    int x[2]={0},i=0;
+    while(moves[i]!='\0'){
+        switch(moves[i]){
+            case 'U': x[0]--; break;
+            case 'D': x[0]++; break;
+            case 'L': x[1]--; break;
+            case 'R': x[1]++; 
+        }
+        i++;
+    }
+    if(x[0]==0&&x[1]==0)
+        return true;
+    else
+        return false;
+    
+}
