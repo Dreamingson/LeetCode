@@ -1,0 +1,41 @@
+
+
+char * defangIPaddr(char * address){
+    
+    if(address==NULL)
+        return NULL;
+    
+    int len = strlen(address);
+    char *str=malloc((7+len)*sizeof(char));
+   
+    int i=0,j=0;
+    
+    while(i<len){
+        if(address[i]=='.'){
+            str[j++]='[';
+            str[j++]=address[i];
+            str[j++]=']';
+        }
+        else
+            str[j++]=address[i];
+       
+        i++;  
+        
+    } 
+    
+    str[j]='\0';
+    return str;
+        
+}
+    
+
+                
+            
+            
+        
+        
+        
+    
+
+
+
