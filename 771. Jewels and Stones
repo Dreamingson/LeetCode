@@ -1,0 +1,36 @@
+-------Naive Version(O(n^2))-------------
+
+int numJewelsInStones(char * J, char * S){
+
+    int i,j,count=0;
+    int lenJ=strlen(J);
+    int lenS=strlen(S);
+    
+    for(i=0;i<lenS;i++)
+        for(j=0;j<lenJ;j++)
+            if(S[i]==J[j])
+                count++;
+        
+    
+    return count;
+    
+}
+
+
+-------Improved Version(O(n))-------------------
+
+int numJewelsInStones(char* J, char* S) {
+    int hash[123]={0};
+    int Jlen=strlen(J);
+    int Slen=strlen(S);
+    int ret=0;
+    for(int i=0;i<Jlen;i++){
+        hash[J[i]]++;
+    }
+    for(int i=0;i<Slen;i++){
+        if(hash[S[i]]!=0){
+            ret++;
+        }
+    }
+    return ret;
+}
