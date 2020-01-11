@@ -1,0 +1,31 @@
+-------------------Naive Version(O(n^2))--------------------
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+
+int getDecimalValue(struct ListNode* head){
+    
+    struct ListNode* ptr;
+    int len=0,t=1,sum=0;
+    ptr=head;
+    while(ptr->next!=NULL){
+        len++;
+        t*=2;
+        ptr=ptr->next;   
+    }
+    
+    for(int i=0;i<=len;i++){
+        sum+=(head->val)*t;
+        t/=2;
+        head=head->next;
+    }
+    
+
+    return sum;
+}
+
